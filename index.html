@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧮 Генератор паролів</title>
+    <style>
+        :root {
+            --bg: #f0f0f0;
+            --text: #111;
+            --accent: #0077cc;
+        }
+
+        body.dark {
+            --bg: #121212;
+            --text: #eee;
+        }
+
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        body.dark .container {
+            background: #1e1e1e;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+        }
+
+        input[type="range"] {
+            width: 100%;
+        }
+
+        .password {
+            font-size: 1.2rem;
+            background: #eee;
+            color: #111;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            word-break: break-word;
+            border-radius: 6px;
+        }
+
+        body.dark .password {
+            background: #ccc;
+            color: #000;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+            .btn:hover {
+                opacity: 0.9;
+            }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle {
+            margin-top: 1rem;
+            cursor: pointer;
+            font-size: 1rem;
+            background: none;
+            border: none;
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 Генератор паролів</h1>
+        <div class="password" id="passwordOutput">Натисни "Згенерувати"</div>
+        <div class="options">
+            <label>Довжина: <span id="lengthDisplay">12</span></label>
+            <input type="range" min="4" max="32" value="12" id="lengthInput" />
+            <label><input type="checkbox" id="includeLower" checked /> Малі літери (a-z)</label>
+            <label><input type="checkbox" id="includeUpper" checked /> Великі літери (A-Z)</label>
+            <label><input type="checkbox" id="includeNumbers" checked /> Цифри (0-9)</label>
+            <label><input type="checkbox" id="includeSymbols" checked /> Символи (!@#...)</label>
+        </div>
+        <div style="text-align:center;">
+            <button class="btn" id="generateBtn">Згенерувати</button>
+            <button class="btn" id="copyBtn">Копіювати</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle">🌙 Темна тема</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
